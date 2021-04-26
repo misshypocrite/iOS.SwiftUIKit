@@ -8,8 +8,8 @@ import UIKit
 
 import SwiftUIKit
 struct Item {
-    let title : String?
-    let value : String?
+    let title : String
+    let value : String
 }
 class HomeScreenVc: UI.ViewController {
 //    var screen = U
@@ -70,29 +70,7 @@ class HomeScreenVc: UI.ViewController {
             }
             VStackView(spacing: 16, distribution: .fill) {
                 ForEach(items) { (index,item) in
-                    ZStackView {
-                        VStackView(spacing: 6, distribution: .fill) {
-                            UILabel()
-                                .dx.text(item.title)
-                                .dx.style(Typography.Title2)
-                                .dx.font(.boldSystemFont(ofSize: 16))
-                                
-                            UILabel()
-                                .dx.numberOfLines(0)
-                                .dx.text(item.value)
-                                .dx.style(Typography.SubTitle)
-                                .dx.textColor(ThemeManager.shared.current.text4)
-                            ZStackView {
-                                ZStackView {
-                                    
-                                }
-                                .dx.backgroundColor(ThemeManager.shared.current.line)
-                                .sizing(width: nil, height: 1)
-                                .stickingToParentEdges(left: 0, right: 0, top: 5, bottom: 0)
-                            }
-                        }.fillingParent(insets: (16,16,0,0))
-                    }
-                    
+                    HomeIntroItem(title: item.title, value: item.value)
                 }
             }
         }
@@ -115,37 +93,49 @@ class HomeScreenVc: UI.ViewController {
     }
 }
 
-//class HomeItem: UI.View {
-//
-//    func layout() -> SomeView {
-//        VStackView(spacing: 6, distribution: .fill) {
-//            UILabel()
-//                .dx.text("hellooo")
-//                .dx.style(Typography.Title2)
-//            UILabel()
-//                .dx.numberOfLines(0)
-//                .dx.text("hellooo")
-//                .dx.style(Typography.SubTitle)
-//                .dx.textColor(ThemeManager.shared.current.text4)
-//            ZStackView {
-//                ZStackView {
-//
-//                }
-//                .dx.backgroundColor(ThemeManager.shared.current.line)
-//                .sizing(width: nil, height: 1)
-//                .stickingToParentEdges(left: 0, right: 0, top: 5, bottom: 0)
-//            }
-//        }.fillingParent(insets: (16,16,0,0))
-//    }
-//
-//    override var subviewsLayout: SomeView {
-//        layout()
-//    }
-//
-//    @objc func injected() {
-//        self.layoutBag.revert()
-//
-//        layoutBag.append(layout().layout(in: self))
-//    }
-//}
+class HomeIntroItem: UI.View {
+    
+    let title : String
+    let value : String
+    init (title : String,value : String) {
+        self.title = title
+        self.value = value
+        super.init(frame: .zero)
+    }
+    
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func layout() -> SomeView {
+        VStackView(spacing: 6, distribution: .fill) {
+            UILabel()
+                .dx.text(title)
+                .dx.font(.boldSystemFont(ofSize: 16))
+            UILabel()
+                .dx.numberOfLines(0)
+                .dx.text(value)
+                .dx.style(Typography.SubTitle)
+                .dx.textColor(ThemeManager.shared.current.text4)
+            ZStackView {
+                ZStackView {
+
+                }
+                .dx.backgroundColor(ThemeManager.shared.current.line)
+                .sizing(width: nil, height: 1)
+                .stickingToParentEdges(left: 0, right: 0, top: 5, bottom: 0)
+            }
+        }.fillingParent(insets: (16,16,0,0))
+    }
+
+    override var subviewsLayout: SomeView {
+        layout()
+    }
+
+    @objc func injected() {
+        self.layoutBag.revert()
+
+        layoutBag.append(layout().layout(in: self))
+    }
+}
 
