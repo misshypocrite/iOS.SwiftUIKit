@@ -12,7 +12,6 @@ struct Item {
     let value : String
 }
 class HomeScreenVc: UI.ViewController {
-//    var screen = U
     override func viewDidLoad() {
         super.viewDidLoad()
         
