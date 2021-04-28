@@ -15,6 +15,8 @@
          ZStackView {
             VStackView(spacing: 47, distribution: .fill) {
                 InfoMusic(name: "Taki Taki ", singer: "Selena Gomez, Ozuna, Cardi B", musician: "DJ Snake", image: "sing" )
+                    .scrolling(.vertical)
+                    
                 ZStackView {
                     ControlMusic(startTime: "1:56", endTime: "3:33")
                         .fillingParent()
