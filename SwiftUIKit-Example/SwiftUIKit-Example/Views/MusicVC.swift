@@ -16,9 +16,38 @@
          ZStackView {
             VStackView(spacing: 47, distribution: .fill) {
                 ZStackView {
-                    
-                }.dx.backgroundColor(.blue)
-                
+                    VStackView(spacing: 45, distribution: .fill) {
+                        ZStackView {
+                            UIImageView()
+                                .dx.image(UIImage(named: "sing"))
+                                .dx.style(UI.ViewStyle.Card1())
+                                .fillingParent()
+                        }
+                        
+                        .dx.style(UI.ViewStyle.CornerRadius(radius: 12))
+                        .constrainingAspectRatio(ratio: 330/300)
+                        
+                        VStackView(spacing: 5, distribution: .fill) {
+                            UILabel()
+                                .dx.text("Taki Taki")
+                                .dx.font(.boldSystemFont(ofSize: 24))
+                                .dx.textAlignment(.center)
+                            UILabel()
+                                .dx.text("Selena Gomez, Ozuna, Cardi B")
+                                .dx.font(.systemFont(ofSize: 20))
+                                .dx.textAlignment(.center)
+                            ZStackView{
+                                UILabel()
+                                    .dx.text("DJ Snake")
+                                    .dx.textAlignment(.center)
+                                    .dx.font(.systemFont(ofSize: 14))
+                                    .fillingParent(insets: (0,0,10,0))
+                            }
+                        }
+                    }
+                    .fillingParent()
+                }
+                .scrolling(.vertical)
                 
                 ZStackView {
                     VStackView(spacing: 47, distribution: .fill) {
@@ -92,7 +121,11 @@
             }
             .fillingParent(insets: (24,24,48,48))
          }
-         .dx.backgroundColor(ThemeManager.shared.current.box2)
+         .dx.backgroundColor(ThemeManager.shared.current.background5)
          .fillingParent()
      }
  }
+
+class InfoMusic  {
+    
+}
