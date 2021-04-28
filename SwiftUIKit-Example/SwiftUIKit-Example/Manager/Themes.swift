@@ -26,6 +26,7 @@ class Theme {
     var box2 = UIColor(hex: "DDDBAA")
     var box3 = UIColor(hex: "F5C137")
     var box4 = UIColor(hex: "AFB3D5")
+    var box5 = UIColor(hex: "67B8BD")
 }
 
 class ThemeManager {
