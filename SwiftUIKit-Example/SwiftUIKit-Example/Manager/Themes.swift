@@ -10,6 +10,7 @@ import UIKit
 class Theme {
     var background1 = UIColor(hex: "FFFFFF")
     var background2 = UIColor(hex: "F8F9FA")
+    var background5 = UIColor(hex: "EAEFD7")
     
     var text1 = UIColor(hex: "343A40")
     var text2 = UIColor(hex: "868E96")
@@ -25,6 +26,7 @@ class Theme {
     var box2 = UIColor(hex: "DDDBAA")
     var box3 = UIColor(hex: "F5C137")
     var box4 = UIColor(hex: "AFB3D5")
+    var box5 = UIColor(hex: "67B8BD")
 }
 
 class ThemeManager {

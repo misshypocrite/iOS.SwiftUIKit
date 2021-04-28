@@ -92,6 +92,16 @@ class HomeVC: UI.ViewController {
                                             .dx.style(UI.ViewStyle.CornerRadius(radius: 8))
                                             .dx.startAddGesture
                                             .action { [weak self] in
+                                                switch index {
+                                                case 0 :
+                                                    self?.present(MusicVC(), animated: true, completion: nil)
+                                                    break;
+                                                case 1 :
+                                                    break;
+                                                default :
+                                                    break;
+                                                    
+                                                }
                                                 self?.present(BasicVC(), animated: true, completion: nil)
                                             }
                                             .commitGesture()
