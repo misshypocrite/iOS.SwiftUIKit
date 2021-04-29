@@ -92,6 +92,9 @@ class HomeVC: UI.ViewController {
                                             .dx.style(UI.ViewStyle.CornerRadius(radius: 8))
                                             .dx.startAddGesture
                                             .action { [weak self] in
+                                                if index == 0 {
+                                                    self?.present(HomeScreenVc(), animated: true, completion: nil)
+                                                }
                                                 self?.present(BasicVC(), animated: true, completion: nil)
                                             }
                                             .commitGesture()
@@ -99,6 +102,7 @@ class HomeVC: UI.ViewController {
                                         }
                                         
                                         UIView()
+                                        
                                     }
                                     .fillingParent(insets: 20)
                                 }

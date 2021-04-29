@@ -14,6 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
+        #if DEBUG
+        Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/iOSInjection.bundle")?.load()
+        #endif
+        
         let window = UIWindow(frame: UIScreen.main.bounds)
         let homeVC = HomeVC()
         window.rootViewController = homeVC
